@@ -6,41 +6,14 @@
 # the express permission of the author.
 #==============================================================================
 
-# Build folders
-build
-build-*
-cmake-build-*
-[Dd]ebug
-[Rr]elease
+find_package(Doxygen QUIET)
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+if(${Doxygen_FOUND})
 
-# Executables
-*.exe
-*.out
-*.app
+  doxygen_add_docs(docs ${PROJECT_SOURCE_DIR}/includes
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    COMMENT "Generate documentation")
 
-# Generated folders
-bin/
-gen/
-out/
-
-# CLion
-.idea
-
-# Eclipse
-.project
-.cproject
-.metadata
-.settings
-*.launch
-
-# VSCode
-.vscode
-
-# Sublime Text
-*.sublime-workspace
+else()
+  message(WARNING "Doxygen not found! Documentation cannot be generated...")
+endif()
