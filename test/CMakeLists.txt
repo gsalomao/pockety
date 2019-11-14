@@ -16,6 +16,16 @@ if(${GTest_FOUND})
 
   add_custom_target(build_tests)
 
+  if(ENABLE_COVERAGE)
+    find_program(LCOV lcov REQUIRED)
+
+    add_custom_target(coverage)
+    add_custom_command(TARGET coverage
+      COMMAND ${LCOV} --directory ${CMAKE_SOURCE_DIR} --capture --output-file coverage.info
+      COMMAND ${LCOV} --remove coverage.info '*/test/*' '/usr/*' --output-file coverage.info
+      WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/test-report)
+  endif()
+
   add_subdirectory(unit)
   add_subdirectory(integration)
 

@@ -1,4 +1,7 @@
 # Pockety 
+[![Build Status](https://travis-ci.org/gsalomao/pockety.svg?branch=develop)](https://travis-ci.org/gsalomao/pockety)
+[![Coverage Status](https://coveralls.io/repos/github/gsalomao/pockety/badge.svg?branch=develop)](https://coveralls.io/github/gsalomao/pockety?branch=develop)
+
 Personal finance manager.
 
 ## Development
@@ -55,4 +58,3 @@ $ cmake -B build \
     -DUNIT_TEST_REPORT_FILE=<FILE NAME> \
     -DINTEGRATION_TEST_REPORT_FILE=<FILE NAME>
 ```
-

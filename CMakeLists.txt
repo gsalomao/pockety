@@ -24,13 +24,20 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 
-message(STATUS "Project will be installed into ${CMAKE_INSTALL_PREFIX}")
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
+option(ENABLE_COVERAGE "Enable test coverage" NO)
+if(ENABLE_COVERAGE)
+  message(STATUS "Enabling test coverage")
+
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 --coverage")
+  set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE 1)
+endif()
+
 include(GitVersion)
 message(STATUS "Project version: ${PROJECT_VERSION}")
+message(STATUS "Project will be installed into ${CMAKE_INSTALL_PREFIX}")
 
 include_directories(src)
 set(MODULES "")
