@@ -39,6 +39,9 @@ include(GitVersion)
 message(STATUS "Project version: ${PROJECT_VERSION}")
 message(STATUS "Project will be installed into ${CMAKE_INSTALL_PREFIX}")
 
+add_subdirectory(docs)
+add_subdirectory(libs)
+
 include_directories(src)
 set(MODULES "")
 
@@ -48,7 +51,6 @@ set(MODULES "")
 # Remove leading or trailing whitespace
 # TODO: string(STRIP ${MODULES} MODULES)
 
-add_subdirectory(docs)
 add_subdirectory(src/app)
 
 enable_testing()
