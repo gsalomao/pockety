@@ -12,7 +12,7 @@ add_executable(${INTEGRATION_TESTS} EXCLUDE_FROM_ALL)
 set(INTEGRATION_TEST_REPORT_FILE "integration-test-report.xml" CACHE STRING
   "File name of the integration test report")
 
-message(STATUS "Unit test report file: ${INTEGRATION_TEST_REPORT_FILE}")
+message(STATUS "Integration test report file: ${INTEGRATION_TEST_REPORT_FILE}")
 
 add_dependencies(${INTEGRATION_TESTS} ${PROJECT_NAME})
 add_dependencies(build_tests ${INTEGRATION_TESTS})
