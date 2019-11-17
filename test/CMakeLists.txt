@@ -19,7 +19,7 @@ if(ENABLE_COVERAGE)
   add_custom_target(coverage)
   add_custom_command(TARGET coverage
     COMMAND ${LCOV} --directory ${CMAKE_SOURCE_DIR} --capture --output-file coverage.info
-    COMMAND ${LCOV} --remove coverage.info '*/test/*' '/usr/*' --output-file coverage.info
+    COMMAND ${LCOV} --remove coverage.info '*/test/*' '*gtest*' '/usr/*' --output-file coverage.info
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/test-report)
 endif()
 
