@@ -39,9 +39,11 @@ include(GitVersion)
 message(STATUS "Project version: ${PROJECT_VERSION}")
 message(STATUS "Project will be installed into ${CMAKE_INSTALL_PREFIX}")
 
-add_subdirectory(docs)
-add_subdirectory(libs)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+set(DEPENDENCIES ${CONAN_LIBS})
 
+add_subdirectory(docs)
 include_directories(src)
 set(MODULES "")
 

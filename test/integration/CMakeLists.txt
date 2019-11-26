@@ -16,7 +16,7 @@ message(STATUS "Integration test report file: ${INTEGRATION_TEST_REPORT_FILE}")
 
 add_dependencies(${INTEGRATION_TESTS} ${PROJECT_NAME})
 add_dependencies(build_tests ${INTEGRATION_TESTS})
-target_link_libraries(${INTEGRATION_TESTS} GTest::Main ${MODULES})
+target_link_libraries(${INTEGRATION_TESTS} ${DEPENDENCIES} ${MODULES})
 
 add_test(NAME integration-tests
   COMMAND $<TARGET_FILE:${INTEGRATION_TESTS}>

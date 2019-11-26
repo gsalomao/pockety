@@ -11,7 +11,7 @@ compiler:
   - gcc
 
 before_install:
-  - pip install --user cpp-coveralls
+  - pip install --user cpp-coveralls conan
 
 install:
   - sudo apt-get install -y doxygen lcov
@@ -30,6 +30,10 @@ install:
   - cd ${TRAVIS_BUILD_DIR}
   # Install lcov to coveralls conversion + upload tool
   - gem install coveralls-lcov
+  # Install dependencies using Conan
+  - conan profile new --detect default
+  - conan profile update settings.compiler.libcxx=libstdc++11 default
+  - conan install -if build .
 
 script:
   - cmake -Bbuild -DENABLE_COVERAGE=YES .
