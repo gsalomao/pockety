@@ -1,5 +1,7 @@
 [requires]
 gtest/1.10.0
+sqlite3/3.27.2@bincrafters/stable
+sqlitecpp/2.4.0@bincrafters/stable
 
 [generators]
 cmake
