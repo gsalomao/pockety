@@ -14,7 +14,6 @@ set(INTEGRATION_TEST_REPORT_FILE "integration-test-report.xml" CACHE STRING
 
 message(STATUS "Integration test report file: ${INTEGRATION_TEST_REPORT_FILE}")
 
-add_dependencies(${INTEGRATION_TESTS} ${PROJECT_NAME})
 add_dependencies(build_tests ${INTEGRATION_TESTS})
 target_link_libraries(${INTEGRATION_TESTS} ${DEPENDENCIES} ${MODULES})
 
