@@ -1,9 +1,16 @@
-#include <iostream>
-#include <memory>
+#include <QApplication>
+#include <QPushButton>
+#include <QDebug>
 
-using namespace std;
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
 
-int main() {
-    cout << "Hello World Pockety!" << endl;
-    return EXIT_SUCCESS;
+    qDebug() << "Hello world!";
+
+    QPushButton hello("Hello world!", 0);
+    hello.resize(300, 100);
+
+    hello.show();
+
+    return app.exec();
 }

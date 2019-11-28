@@ -24,7 +24,7 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -fPIC")
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 option(ENABLE_COVERAGE "Enable test coverage" NO)
@@ -42,6 +42,11 @@ message(STATUS "Project will be installed into ${CMAKE_INSTALL_PREFIX}")
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 set(DEPENDENCIES ${CONAN_LIBS})
+
+# Create code from a list of Qt designer ui files
+set(CMAKE_AUTOUIC ON)
+
+find_package(Qt5 COMPONENTS Core Widgets CONFIG REQUIRED)
 
 add_subdirectory(docs)
 include_directories(src)
