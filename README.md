@@ -1,8 +1,6 @@
-# Pockety 
-[![Build Status](https://travis-ci.org/gsalomao/pockety.svg?branch=develop)](https://travis-ci.org/gsalomao/pockety)
-[![Coverage Status](https://coveralls.io/repos/github/gsalomao/pockety/badge.svg?branch=develop)](https://coveralls.io/github/gsalomao/pockety?branch=develop)
+# Template
 
-Personal finance manager.
+Template project - C++/CMake/GTest/Travis
 
 ## Development
 ### Prerequisites
